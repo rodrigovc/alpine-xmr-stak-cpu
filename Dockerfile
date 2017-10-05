@@ -10,8 +10,9 @@ RUN   apk --no-cache upgrade && \
     g++ \
     build-base \
     git && \
-  git clone https://github.com/b-i-t-n/xmr-stak-cpu && \
+  git clone https://github.com/fireice-uk/xmr-stak-cpu && \
   cd xmr-stak-cpu && \
+  sed -i 's/constexpr double fDevDonationLevel =.*/constexpr double fDevDonationLevel = 0;/' donate-level.h  && \
   cmake -DMICROHTTPD_REQUIRED=OFF -DCMAKE_LINK_STATIC=ON . && \
   make && \
   apk del \
