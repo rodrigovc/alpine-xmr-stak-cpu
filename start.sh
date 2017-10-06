@@ -16,4 +16,6 @@ while [  ${COUNTER} -lt ${workers} ]; do
 done
 echo '],' >> /tmp/config.txt
 
+echo /tmp/config.txt
+
 /xmr-stak-cpu/bin/xmr-stak-cpu
