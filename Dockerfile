@@ -13,6 +13,8 @@ RUN   apk --no-cache upgrade && \
   git clone https://github.com/fireice-uk/xmr-stak-cpu && \
   cd xmr-stak-cpu && \
   sed -i 's/constexpr double fDevDonationLevel =.*/constexpr double fDevDonationLevel = 0;/' donate-level.h  && \
+  echo '* soft memlock 262144' >> /etc/security/limits.conf && \
+  echo '* hard memlock 262144' >> /etc/security/limits.conf && \
   cmake -DMICROHTTPD_ENABLE=OFF -DHWLOC_ENABLE=OFF -DCMAKE_LINK_STATIC=ON . && \
   make && \
   apk del \
